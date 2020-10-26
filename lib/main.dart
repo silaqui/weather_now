@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weather_now/presentation/app_widget.dart';
 
-import 'presentation/weather_page.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Weather Now',
-      theme: ThemeData(fontFamily: 'Heebo'),
-      home: WeatherPage(),
-    );
-  }
+Future<void> main() async {
+  runApp(AppWidget());
 }
