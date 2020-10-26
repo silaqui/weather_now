@@ -24,9 +24,9 @@ class _$FavoriteWatcherStateTearOff {
   }
 
 // ignore: unused_element
-  _LoadSuccess loadSuccess(List<Favorite> notes) {
+  _LoadSuccess loadSuccess(List<Favorite> favorites) {
     return _LoadSuccess(
-      notes,
+      favorites,
     );
   }
 
@@ -48,14 +48,14 @@ mixin _$FavoriteWatcherState {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<Favorite> notes),
+    @required Result loadSuccess(List<Favorite> favorites),
     @required Result loadFailure(Failure failure),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadSuccess(List<Favorite> notes),
+    Result loadSuccess(List<Favorite> favorites),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   });
@@ -132,7 +132,7 @@ class _$_Initial implements _Initial {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<Favorite> notes),
+    @required Result loadSuccess(List<Favorite> favorites),
     @required Result loadFailure(Failure failure),
   }) {
     assert(initial != null);
@@ -147,7 +147,7 @@ class _$_Initial implements _Initial {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadSuccess(List<Favorite> notes),
+    Result loadSuccess(List<Favorite> favorites),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   }) {
@@ -235,7 +235,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<Favorite> notes),
+    @required Result loadSuccess(List<Favorite> favorites),
     @required Result loadFailure(Failure failure),
   }) {
     assert(initial != null);
@@ -250,7 +250,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadSuccess(List<Favorite> notes),
+    Result loadSuccess(List<Favorite> favorites),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   }) {
@@ -302,7 +302,7 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({List<Favorite> notes});
+  $Res call({List<Favorite> favorites});
 }
 
 /// @nodoc
@@ -318,37 +318,38 @@ class __$LoadSuccessCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object notes = freezed,
+    Object favorites = freezed,
   }) {
     return _then(_LoadSuccess(
-      notes == freezed ? _value.notes : notes as List<Favorite>,
+      favorites == freezed ? _value.favorites : favorites as List<Favorite>,
     ));
   }
 }
 
 /// @nodoc
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.notes) : assert(notes != null);
+  const _$_LoadSuccess(this.favorites) : assert(favorites != null);
 
   @override
-  final List<Favorite> notes;
+  final List<Favorite> favorites;
 
   @override
   String toString() {
-    return 'FavoriteWatcherState.loadSuccess(notes: $notes)';
+    return 'FavoriteWatcherState.loadSuccess(favorites: $favorites)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _LoadSuccess &&
-            (identical(other.notes, notes) ||
-                const DeepCollectionEquality().equals(other.notes, notes)));
+            (identical(other.favorites, favorites) ||
+                const DeepCollectionEquality()
+                    .equals(other.favorites, favorites)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(notes);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(favorites);
 
   @override
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
@@ -359,14 +360,14 @@ class _$_LoadSuccess implements _LoadSuccess {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<Favorite> notes),
+    @required Result loadSuccess(List<Favorite> favorites),
     @required Result loadFailure(Failure failure),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadSuccess != null);
     assert(loadFailure != null);
-    return loadSuccess(notes);
+    return loadSuccess(favorites);
   }
 
   @override
@@ -374,13 +375,13 @@ class _$_LoadSuccess implements _LoadSuccess {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadSuccess(List<Favorite> notes),
+    Result loadSuccess(List<Favorite> favorites),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
-      return loadSuccess(notes);
+      return loadSuccess(favorites);
     }
     return orElse();
   }
@@ -418,9 +419,9 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements FavoriteWatcherState {
-  const factory _LoadSuccess(List<Favorite> notes) = _$_LoadSuccess;
+  const factory _LoadSuccess(List<Favorite> favorites) = _$_LoadSuccess;
 
-  List<Favorite> get notes;
+  List<Favorite> get favorites;
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
 }
 
@@ -486,7 +487,7 @@ class _$_LoadFailure implements _LoadFailure {
   Result when<Result extends Object>({
     @required Result initial(),
     @required Result loadInProgress(),
-    @required Result loadSuccess(List<Favorite> notes),
+    @required Result loadSuccess(List<Favorite> favorites),
     @required Result loadFailure(Failure failure),
   }) {
     assert(initial != null);
@@ -501,7 +502,7 @@ class _$_LoadFailure implements _LoadFailure {
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
-    Result loadSuccess(List<Favorite> notes),
+    Result loadSuccess(List<Favorite> favorites),
     Result loadFailure(Failure failure),
     @required Result orElse(),
   }) {

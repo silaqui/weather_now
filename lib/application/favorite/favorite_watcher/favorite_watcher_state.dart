@@ -10,7 +10,7 @@ abstract class FavoriteWatcherState with _$FavoriteWatcherState {
 
   const factory FavoriteWatcherState.loadInProgress() = _LoadInProgress;
 
-  const factory FavoriteWatcherState.loadSuccess(List<Favorite> notes) =
+  const factory FavoriteWatcherState.loadSuccess(List<Favorite> favorites) =
       _LoadSuccess;
 
   const factory FavoriteWatcherState.loadFailure(Failure failure) =

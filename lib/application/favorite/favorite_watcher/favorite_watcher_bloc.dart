@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:weather_now/core/error/failures.dart';
 import 'package:weather_now/domain/favorite/favorite.dart';
 import 'package:weather_now/domain/favorite/i_favorite_repository.dart';
@@ -9,6 +10,7 @@ import 'package:weather_now/domain/favorite/i_favorite_repository.dart';
 import 'favorite_watcher_event.dart';
 import 'favorite_watcher_state.dart';
 
+@injectable
 class FavoriteWatcherBloc
     extends Bloc<FavoriteWatcherEvent, FavoriteWatcherState> {
   final IFavoriteRepository _favoriteRepository;
