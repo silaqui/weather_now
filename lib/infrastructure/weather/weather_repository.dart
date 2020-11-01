@@ -1,8 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:weather_now/core/error/failures.dart';
 import 'package:weather_now/domain/weather/i_weather_repository.dart';
 import 'package:weather_now/domain/weather/weather.dart';
 
+@LazySingleton(as: IWeatherRepository)
 class WeatherRepository implements IWeatherRepository {
   var weather = Weather(
     temperature: 25,
@@ -28,8 +30,7 @@ class WeatherRepository implements IWeatherRepository {
   );
 
   @override
-  Future<Either<Failure, Weather>> getByCoordinates(
-      double latitude, double longitude) async {
+  Future<Either<Failure, Weather>> getByCoordinates(double latitude, double longitude) async {
     return right<Failure, Weather>(weather);
   }
 

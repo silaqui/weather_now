@@ -1,8 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:weather_now/core/error/failures.dart';
 import 'package:weather_now/domain/location/i_location_repository.dart';
 import 'package:weather_now/domain/location/location.dart';
 
+@LazySingleton(as: ILocationRepository)
 class LocationRepository extends ILocationRepository {
   @override
   Future<Either<Failure, Location>> getLocation() async {
