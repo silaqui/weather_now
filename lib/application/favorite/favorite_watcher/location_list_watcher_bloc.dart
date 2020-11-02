@@ -49,57 +49,58 @@ class LocationListWatcherBloc
       add(LocationListWatcherEvent.locationReceived(event));
     });
 
-    _streamSubscription = _favoriteRepository.watchAll().listen((event) {
+    _streamSubscription =
+        _favoriteRepository.findAll().asStream().listen((event) {
       add(LocationListWatcherEvent.favoriteReceived(event));
     });
   }
 
-  Stream<LocationListWatcherState> _favoriteReceived(e) async* {
+  Stream<LocationListWatcherState> _favoriteReceived(event) async* {
     print("_favoriteReceived");
 
     if (state is LoadLocation) {
       final LoadLocation current = state;
-      yield e.failureOrFavorites.fold(
-        (failure) => LocationListWatcherState.loadFailure(failure),
-        (favorites) =>
+      yield event.failureOrFavoriteLists.fold(
+            (failure) => LocationListWatcherState.loadFailure(failure),
+            (favorites) =>
             LocationListWatcherState.loadSuccess(current.location, favorites),
       );
     } else if (state is LoadSuccess) {
       final LoadSuccess current = state;
-      yield e.failureOrFavorites.fold(
-        (failure) => LocationListWatcherState.loadFailure(failure),
-        (favorites) =>
+      yield event.failureOrFavoriteLists.fold(
+            (failure) => LocationListWatcherState.loadFailure(failure),
+            (favorites) =>
             LocationListWatcherState.loadSuccess(current.location, favorites),
       );
     } else {
-      yield e.failureOrFavorites.fold(
-        (failure) => LocationListWatcherState.loadFailure(failure),
-        (favorites) => LocationListWatcherState.loadFavorites(favorites),
+      yield event.failureOrFavoriteLists.fold(
+            (failure) => LocationListWatcherState.loadFailure(failure),
+            (favorites) => LocationListWatcherState.loadFavorites(favorites),
       );
     }
   }
 
-  Stream<LocationListWatcherState> _locationReceived(e) async* {
+  Stream<LocationListWatcherState> _locationReceived(event) async* {
     print("_locationReceived");
 
     if (state is LoadFavorites) {
       final LoadFavorites current = state;
-      yield e.failureOrFavorites.fold(
-        (failure) => LocationListWatcherState.loadFailure(failure),
-        (location) =>
+      yield event.failureOrLocation.fold(
+            (failure) => LocationListWatcherState.loadFailure(failure),
+            (location) =>
             LocationListWatcherState.loadSuccess(location, current.favorites),
       );
     } else if (state is LoadSuccess) {
       final LoadSuccess current = state;
-      yield e.failureOrFavorites.fold(
-        (failure) => LocationListWatcherState.loadFailure(failure),
-        (location) =>
+      yield event.failureOrLocation.fold(
+            (failure) => LocationListWatcherState.loadFailure(failure),
+            (location) =>
             LocationListWatcherState.loadSuccess(location, current.favorites),
       );
     } else {
-      yield e.failureOrLocation.fold(
-        (failure) => LocationListWatcherState.loadFailure(failure),
-        (location) => LocationListWatcherState.loadLocation(location),
+      yield event.failureOrLocation.fold(
+            (failure) => LocationListWatcherState.loadFailure(failure),
+            (location) => LocationListWatcherState.loadLocation(location),
       );
     }
   }

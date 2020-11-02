@@ -24,8 +24,8 @@ class _CityListState extends State<CityList> with TickerProviderStateMixin {
         child: BlocBuilder<LocationListWatcherBloc, LocationListWatcherState>(
           builder: (BuildContext context, state) {
             return state.map(
-              initial: (_) => Container(),
-              loadInProgress: (_) => Container(),
+              initial: (_) => Text("initial"),
+              loadInProgress: (_) => Text("loadInProgress"),
               loadSuccess: (state) => ListView.builder(
                 itemCount: state.favorites.length,
                 itemBuilder: (context, index) {
@@ -36,9 +36,9 @@ class _CityListState extends State<CityList> with TickerProviderStateMixin {
                   );
                 },
               ),
-              loadFailure: (_) => Container(),
-              loadLocation: (_) => Container(),
-              loadFavorites: (_) => Container(),
+              loadFailure: (_) => Text("loadFailure"),
+              loadLocation: (_) => Text("loadLocation"),
+              loadFavorites: (_) => Text("loadFavorites"),
             );
           },
         ),

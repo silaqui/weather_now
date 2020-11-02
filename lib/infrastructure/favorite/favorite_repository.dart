@@ -19,14 +19,13 @@ class FavoriteRepository implements IFavoriteRepository {
   }
 
   @override
-  Stream<Either<Failure, List<Favorite>>> watchAll() {
-    var fav = [
+  Future<Either<Failure, List<Favorite>>> findAll() async {
+    var favorite = List.of([
       Favorite(name: "Poznan"),
       Favorite(name: "Berlin"),
       Favorite(name: "London"),
       Favorite(name: "New York"),
-    ];
-    return Stream<Either<Failure, List<Favorite>>>.fromIterable(
-        Iterable.castFrom(fav));
+    ]);
+    return Right(favorite);
   }
 }
