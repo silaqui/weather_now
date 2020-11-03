@@ -9,12 +9,12 @@ class TopBar extends StatelessWidget {
         Icon(
           Icons.search,
           color: Colors.white,
-          size: 42,
+          size: 32,
         ),
         Icon(
           Icons.menu,
           color: Colors.white,
-          size: 42,
+          size: 36,
         )
       ],
     );

@@ -9,6 +9,7 @@ class WeatherRepository implements IWeatherRepository {
   var weather = Weather(
     temperature: 25,
     description: 'Snow',
+    image: 'assets/images/snow.jpg',
     rain: 76,
     humidity: 86,
     wind: 13,
@@ -16,6 +17,7 @@ class WeatherRepository implements IWeatherRepository {
   var poznan = Weather(
     temperature: 36,
     description: 'Sun',
+    image: 'assets/images/clear_sky.jpg',
     rain: 12,
     humidity: 65,
     wind: 1,
@@ -24,6 +26,7 @@ class WeatherRepository implements IWeatherRepository {
   var berlin = Weather(
     temperature: 13,
     description: 'Rain',
+    image: 'assets/images/rain.jpg',
     rain: 53,
     humidity: 23,
     wind: 45,

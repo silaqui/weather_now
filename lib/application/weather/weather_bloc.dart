@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:weather_now/application/weather/weather_event.dart';
-import 'package:weather_now/application/weather/weather_state.dart';
 import 'package:weather_now/domain/weather/i_weather_repository.dart';
+
+import 'weather_event.dart';
+import 'weather_state.dart';
 
 @injectable
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
@@ -13,23 +14,23 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc(this.weatherRepository) : super(const WeatherState.initial());
 
   @override
-  Stream<WeatherState> mapEventToState(WeatherEvent event,) async* {
-    event.map(
+  Stream<WeatherState> mapEventToState(WeatherEvent event) async* {
+    yield* event.map(
       getByCity: _getByCity,
       getByLocation: _getByLocation,
     );
   }
 
-  dynamic _getByCity(GetByCity event) async* {
+  Stream<WeatherState> _getByCity(GetByCity event) async* {
     yield const WeatherState.loadInProgress();
     var weather = await weatherRepository.getByName(event.cityName);
     yield weather.fold(
-          (failure) => WeatherState.loadFailure(failure),
-          (weather) => WeatherState.loadSuccess(weather),
+      (failure) => WeatherState.loadFailure(failure),
+      (weather) => WeatherState.loadSuccess(weather),
     );
   }
 
-  dynamic _getByLocation(GetByLocation event) async* {
+  Stream<WeatherState> _getByLocation(GetByLocation event) async* {
     yield const WeatherState.loadInProgress();
     var weather = await weatherRepository.getByCoordinates(
         event.latitude, event.longitude);

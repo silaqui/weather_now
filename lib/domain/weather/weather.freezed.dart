@@ -17,12 +17,14 @@ class _$WeatherTearOff {
   _Weather call(
       {@required double temperature,
       @required String description,
+      @required String image,
       @required int wind,
       @required int rain,
       @required int humidity}) {
     return _Weather(
       temperature: temperature,
       description: description,
+      image: image,
       wind: wind,
       rain: rain,
       humidity: humidity,
@@ -37,7 +39,11 @@ const $Weather = _$WeatherTearOff();
 /// @nodoc
 mixin _$Weather {
   double get temperature;
+
   String get description;
+
+  String get image;
+
   int get wind;
   int get rain;
   int get humidity;
@@ -49,12 +55,12 @@ mixin _$Weather {
 abstract class $WeatherCopyWith<$Res> {
   factory $WeatherCopyWith(Weather value, $Res Function(Weather) then) =
       _$WeatherCopyWithImpl<$Res>;
-  $Res call(
-      {double temperature,
-      String description,
-      int wind,
-      int rain,
-      int humidity});
+  $Res call({double temperature,
+    String description,
+    String image,
+    int wind,
+    int rain,
+    int humidity});
 }
 
 /// @nodoc
@@ -69,15 +75,17 @@ class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
   $Res call({
     Object temperature = freezed,
     Object description = freezed,
+    Object image = freezed,
     Object wind = freezed,
     Object rain = freezed,
     Object humidity = freezed,
   }) {
     return _then(_value.copyWith(
       temperature:
-          temperature == freezed ? _value.temperature : temperature as double,
+      temperature == freezed ? _value.temperature : temperature as double,
       description:
-          description == freezed ? _value.description : description as String,
+      description == freezed ? _value.description : description as String,
+      image: image == freezed ? _value.image : image as String,
       wind: wind == freezed ? _value.wind : wind as int,
       rain: rain == freezed ? _value.rain : rain as int,
       humidity: humidity == freezed ? _value.humidity : humidity as int,
@@ -90,12 +98,12 @@ abstract class _$WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
   factory _$WeatherCopyWith(_Weather value, $Res Function(_Weather) then) =
       __$WeatherCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {double temperature,
-      String description,
-      int wind,
-      int rain,
-      int humidity});
+  $Res call({double temperature,
+    String description,
+    String image,
+    int wind,
+    int rain,
+    int humidity});
 }
 
 /// @nodoc
@@ -111,15 +119,17 @@ class __$WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
   $Res call({
     Object temperature = freezed,
     Object description = freezed,
+    Object image = freezed,
     Object wind = freezed,
     Object rain = freezed,
     Object humidity = freezed,
   }) {
     return _then(_Weather(
       temperature:
-          temperature == freezed ? _value.temperature : temperature as double,
+      temperature == freezed ? _value.temperature : temperature as double,
       description:
-          description == freezed ? _value.description : description as String,
+      description == freezed ? _value.description : description as String,
+      image: image == freezed ? _value.image : image as String,
       wind: wind == freezed ? _value.wind : wind as int,
       rain: rain == freezed ? _value.rain : rain as int,
       humidity: humidity == freezed ? _value.humidity : humidity as int,
@@ -129,14 +139,15 @@ class __$WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_Weather extends _Weather {
-  const _$_Weather(
-      {@required this.temperature,
-      @required this.description,
-      @required this.wind,
-      @required this.rain,
-      @required this.humidity})
+  const _$_Weather({@required this.temperature,
+    @required this.description,
+    @required this.image,
+    @required this.wind,
+    @required this.rain,
+    @required this.humidity})
       : assert(temperature != null),
         assert(description != null),
+        assert(image != null),
         assert(wind != null),
         assert(rain != null),
         assert(humidity != null),
@@ -147,6 +158,8 @@ class _$_Weather extends _Weather {
   @override
   final String description;
   @override
+  final String image;
+  @override
   final int wind;
   @override
   final int rain;
@@ -155,7 +168,7 @@ class _$_Weather extends _Weather {
 
   @override
   String toString() {
-    return 'Weather(temperature: $temperature, description: $description, wind: $wind, rain: $rain, humidity: $humidity)';
+    return 'Weather(temperature: $temperature, description: $description, image: $image, wind: $wind, rain: $rain, humidity: $humidity)';
   }
 
   @override
@@ -168,6 +181,8 @@ class _$_Weather extends _Weather {
             (identical(other.description, description) ||
                 const DeepCollectionEquality()
                     .equals(other.description, description)) &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)) &&
             (identical(other.wind, wind) ||
                 const DeepCollectionEquality().equals(other.wind, wind)) &&
             (identical(other.rain, rain) ||
@@ -182,6 +197,7 @@ class _$_Weather extends _Weather {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(temperature) ^
       const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(image) ^
       const DeepCollectionEquality().hash(wind) ^
       const DeepCollectionEquality().hash(rain) ^
       const DeepCollectionEquality().hash(humidity);
@@ -193,23 +209,31 @@ class _$_Weather extends _Weather {
 
 abstract class _Weather extends Weather {
   const _Weather._() : super._();
-  const factory _Weather(
-      {@required double temperature,
-      @required String description,
-      @required int wind,
-      @required int rain,
-      @required int humidity}) = _$_Weather;
+  const factory _Weather({@required double temperature,
+    @required String description,
+    @required String image,
+    @required int wind,
+    @required int rain,
+    @required int humidity}) = _$_Weather;
 
   @override
   double get temperature;
+
   @override
   String get description;
+
+  @override
+  String get image;
+
   @override
   int get wind;
+
   @override
   int get rain;
+
   @override
   int get humidity;
+
   @override
   _$WeatherCopyWith<_Weather> get copyWith;
 }

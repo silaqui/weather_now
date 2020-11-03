@@ -9,4 +9,4 @@ abstract class Failure extends Equatable {
 
 class ConnectionFailure extends Failure {}
 
-class MemoryFailure extends Failure {}
+class LocationsFailure extends Failure {}

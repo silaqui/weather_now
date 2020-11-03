@@ -52,17 +52,15 @@ flutter:
     - assets/images/snow.jpg
     - assets/images/thunderstorm.jpg
   fonts:
-    - family: Heebo
+    - family: Comfortaa
       fonts:
-        - asset: assets/fonts/Heebo-ExtraLight.ttf
-          weight: 200
-        - asset: assets/fonts/Heebo-Light.ttf
+        - asset: assets/fonts/Comfortaa-Light.ttf
           weight: 300
-        - asset: assets/fonts/Heebo-Regular.ttf
+        - asset: assets/fonts/Comfortaa-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Heebo-Medium.ttf
+        - asset: assets/fonts/Comfortaa-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Heebo-SemiBold.ttf
+        - asset: assets/fonts/Comfortaa-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Heebo-Bold.ttf
+        - asset: assets/fonts/Comfortaa-Bold.ttf
           weight: 700

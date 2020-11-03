@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_now/core/theme/theme.dart';
-import 'package:weather_now/presentation/weather_page.dart';
+
+import 'file:///C:/git/weather_now/lib/presentation/weather/weather_page.dart';
 
 class AppWidget extends StatelessWidget {
   @override

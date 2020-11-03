@@ -23,7 +23,7 @@ class _WeatherChartState extends State<WeatherChart>
 
   @override
   void initState() {
-    _controller = AnimationController();
+    _controller = AnimationController(vsync: this);
     super.initState();
   }
 

@@ -7,7 +7,7 @@
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
-import 'application/favorite/favorite_watcher/location_list_watcher_bloc.dart';
+import 'application/favorite_watcher/location_list_watcher_bloc.dart';
 import 'application/weather/weather_bloc.dart';
 import 'domain/favorite/i_favorite_repository.dart';
 import 'domain/location/i_location_repository.dart';
