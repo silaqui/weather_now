@@ -24,8 +24,8 @@ class _$WeatherStateTearOff {
   }
 
 // ignore: unused_element
-  _LoadSuccess loadSuccess(Weather weather) {
-    return _LoadSuccess(
+  LoadSuccess loadSuccess(Weather weather) {
+    return LoadSuccess(
       weather,
     );
   }
@@ -63,14 +63,14 @@ mixin _$WeatherState {
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccess(LoadSuccess value),
     @required Result loadFailure(_LoadFailure value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
+    Result loadSuccess(LoadSuccess value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   });
@@ -161,7 +161,7 @@ class _$_Initial implements _Initial {
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccess(LoadSuccess value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
@@ -176,7 +176,7 @@ class _$_Initial implements _Initial {
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
+    Result loadSuccess(LoadSuccess value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -264,7 +264,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccess(LoadSuccess value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
@@ -279,7 +279,7 @@ class _$_LoadInProgress implements _LoadInProgress {
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
+    Result loadSuccess(LoadSuccess value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -296,30 +296,31 @@ abstract class _LoadInProgress implements WeatherState {
 }
 
 /// @nodoc
-abstract class _$LoadSuccessCopyWith<$Res> {
-  factory _$LoadSuccessCopyWith(
-          _LoadSuccess value, $Res Function(_LoadSuccess) then) =
-      __$LoadSuccessCopyWithImpl<$Res>;
+abstract class $LoadSuccessCopyWith<$Res> {
+  factory $LoadSuccessCopyWith(
+          LoadSuccess value, $Res Function(LoadSuccess) then) =
+      _$LoadSuccessCopyWithImpl<$Res>;
+
   $Res call({Weather weather});
 
   $WeatherCopyWith<$Res> get weather;
 }
 
 /// @nodoc
-class __$LoadSuccessCopyWithImpl<$Res> extends _$WeatherStateCopyWithImpl<$Res>
-    implements _$LoadSuccessCopyWith<$Res> {
-  __$LoadSuccessCopyWithImpl(
-      _LoadSuccess _value, $Res Function(_LoadSuccess) _then)
-      : super(_value, (v) => _then(v as _LoadSuccess));
+class _$LoadSuccessCopyWithImpl<$Res> extends _$WeatherStateCopyWithImpl<$Res>
+    implements $LoadSuccessCopyWith<$Res> {
+  _$LoadSuccessCopyWithImpl(LoadSuccess _value,
+      $Res Function(LoadSuccess) _then)
+      : super(_value, (v) => _then(v as LoadSuccess));
 
   @override
-  _LoadSuccess get _value => super._value as _LoadSuccess;
+  LoadSuccess get _value => super._value as LoadSuccess;
 
   @override
   $Res call({
     Object weather = freezed,
   }) {
-    return _then(_LoadSuccess(
+    return _then(LoadSuccess(
       weather == freezed ? _value.weather : weather as Weather,
     ));
   }
@@ -336,8 +337,8 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$WeatherStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.weather) : assert(weather != null);
+class _$LoadSuccess implements LoadSuccess {
+  const _$LoadSuccess(this.weather) : assert(weather != null);
 
   @override
   final Weather weather;
@@ -350,7 +351,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadSuccess &&
+        (other is LoadSuccess &&
             (identical(other.weather, weather) ||
                 const DeepCollectionEquality().equals(other.weather, weather)));
   }
@@ -360,8 +361,8 @@ class _$_LoadSuccess implements _LoadSuccess {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(weather);
 
   @override
-  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
-      __$LoadSuccessCopyWithImpl<_LoadSuccess>(this, _$identity);
+  $LoadSuccessCopyWith<LoadSuccess> get copyWith =>
+      _$LoadSuccessCopyWithImpl<LoadSuccess>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -399,7 +400,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccess(LoadSuccess value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
@@ -414,7 +415,7 @@ class _$_LoadSuccess implements _LoadSuccess {
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
+    Result loadSuccess(LoadSuccess value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {
@@ -426,11 +427,12 @@ class _$_LoadSuccess implements _LoadSuccess {
   }
 }
 
-abstract class _LoadSuccess implements WeatherState {
-  const factory _LoadSuccess(Weather weather) = _$_LoadSuccess;
+abstract class LoadSuccess implements WeatherState {
+  const factory LoadSuccess(Weather weather) = _$LoadSuccess;
 
   Weather get weather;
-  _$LoadSuccessCopyWith<_LoadSuccess> get copyWith;
+
+  $LoadSuccessCopyWith<LoadSuccess> get copyWith;
 }
 
 /// @nodoc
@@ -525,7 +527,7 @@ class _$_LoadFailure implements _LoadFailure {
   Result map<Result extends Object>({
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadSuccess(_LoadSuccess value),
+    @required Result loadSuccess(LoadSuccess value),
     @required Result loadFailure(_LoadFailure value),
   }) {
     assert(initial != null);
@@ -540,7 +542,7 @@ class _$_LoadFailure implements _LoadFailure {
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
-    Result loadSuccess(_LoadSuccess value),
+    Result loadSuccess(LoadSuccess value),
     Result loadFailure(_LoadFailure value),
     @required Result orElse(),
   }) {

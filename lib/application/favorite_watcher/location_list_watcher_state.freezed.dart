@@ -302,7 +302,6 @@ abstract class $LoadSuccessCopyWith<$Res> {
   factory $LoadSuccessCopyWith(
           LoadSuccess value, $Res Function(LoadSuccess) then) =
       _$LoadSuccessCopyWithImpl<$Res>;
-
   $Res call({List<Location> locations});
 }
 
@@ -423,7 +422,6 @@ abstract class LoadSuccess implements LocationListWatcherState {
   const factory LoadSuccess(List<Location> locations) = _$LoadSuccess;
 
   List<Location> get locations;
-
   $LoadSuccessCopyWith<LoadSuccess> get copyWith;
 }
 

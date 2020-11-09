@@ -8,7 +8,9 @@ part 'weather_state.freezed.dart';
 abstract class WeatherState with _$WeatherState {
   const factory WeatherState.initial() = _Initial;
   const factory WeatherState.loadInProgress() = _LoadInProgress;
-  const factory WeatherState.loadSuccess(Weather weather) = _LoadSuccess;
+
+  const factory WeatherState.loadSuccess(Weather weather) = LoadSuccess;
+
   const factory WeatherState.loadFailure(Failure failure) = _LoadFailure;
 }
 

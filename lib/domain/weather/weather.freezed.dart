@@ -39,11 +39,8 @@ const $Weather = _$WeatherTearOff();
 /// @nodoc
 mixin _$Weather {
   double get temperature;
-
   String get description;
-
   String get image;
-
   int get wind;
   int get rain;
   int get humidity;
@@ -55,12 +52,14 @@ mixin _$Weather {
 abstract class $WeatherCopyWith<$Res> {
   factory $WeatherCopyWith(Weather value, $Res Function(Weather) then) =
       _$WeatherCopyWithImpl<$Res>;
-  $Res call({double temperature,
-    String description,
-    String image,
-    int wind,
-    int rain,
-    int humidity});
+
+  $Res call(
+      {double temperature,
+      String description,
+      String image,
+      int wind,
+      int rain,
+      int humidity});
 }
 
 /// @nodoc
@@ -97,6 +96,7 @@ class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
 abstract class _$WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
   factory _$WeatherCopyWith(_Weather value, $Res Function(_Weather) then) =
       __$WeatherCopyWithImpl<$Res>;
+
   @override
   $Res call({double temperature,
     String description,
@@ -209,6 +209,7 @@ class _$_Weather extends _Weather {
 
 abstract class _Weather extends Weather {
   const _Weather._() : super._();
+
   const factory _Weather({@required double temperature,
     @required String description,
     @required String image,
@@ -230,10 +231,8 @@ abstract class _Weather extends Weather {
 
   @override
   int get rain;
-
   @override
   int get humidity;
-
   @override
   _$WeatherCopyWith<_Weather> get copyWith;
 }

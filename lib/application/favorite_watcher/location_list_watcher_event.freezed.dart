@@ -29,18 +29,15 @@ mixin _$LocationListWatcherEvent {
   Result when<Result extends Object>({
     @required Result started(),
   });
-
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result started(),
     @required Result orElse(),
   });
-
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result started(_Started value),
   });
-
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result started(_Started value),
@@ -61,7 +58,6 @@ class _$LocationListWatcherEventCopyWithImpl<$Res>
   _$LocationListWatcherEventCopyWithImpl(this._value, this._then);
 
   final LocationListWatcherEvent _value;
-
   // ignore: unused_field
   final $Res Function(LocationListWatcherEvent) _then;
 }

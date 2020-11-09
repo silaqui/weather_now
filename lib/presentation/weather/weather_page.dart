@@ -20,17 +20,11 @@ class WeatherPage extends StatelessWidget {
           child: Stack(
             children: [
               BlocBuilder<WeatherBloc, WeatherState>(
+                buildWhen: (p, c) => c is LoadSuccess,
                 builder: (context, state) {
                   return state.maybeMap(
-                    loadSuccess: (state) => Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(state.weather.image),
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ),
-                    orElse: () => Container(),
+                    loadSuccess: (state) => _background(state.weather.image),
+                    orElse: () => _background('assets/images/placeholder.jpg'),
                   );
                 },
               ),
@@ -54,6 +48,17 @@ class WeatherPage extends StatelessWidget {
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget _background(String imagePath) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage(imagePath),
+          fit: BoxFit.cover,
         ),
       ),
     );
